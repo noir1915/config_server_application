@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    #    url: jdbc:postgresql://db:5432/auth_service_db
+    url: jdbc:postgresql://localhost:5432/auth_service_db
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
+
+server:
+  port: 8081
+
+security:
+  jwtSecret: your-secret-key
+
+# подключение к конфиг-серверу через bootstrap.yml (в каждом сервисе)
+# bootstrap.yml:
+# spring:
+#   cloud:
+#     config:
+#       uri: http://localhost:8888 # адрес конфиг-сервера

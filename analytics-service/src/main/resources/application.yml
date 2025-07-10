@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: analytics-service
+  datasource:
+#    url: jdbc:postgresql://db:5432/analytics_service_db
+    url: jdbc:postgresql://localhost:5432/analytics_service_db
+    username: postgres
+    password: root
