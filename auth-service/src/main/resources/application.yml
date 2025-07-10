@@ -11,8 +11,5 @@ spring:
     config:
       uri: http://localhost:8082
 
-security:
-  jwtSecret: your-secret-key
-
 server:
   port: 8081
