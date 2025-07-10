@@ -10,3 +10,6 @@ spring:
   cloud:
     config:
       uri: http://localhost:8083
+
+server:
+  port: 8082

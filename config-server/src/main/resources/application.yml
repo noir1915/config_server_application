@@ -9,8 +9,9 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:config-repo/
+        git:
+          uri: https://github.com/noir1915/config_server_application.git
+          clone-on-start: true
 
 logging:
   level:

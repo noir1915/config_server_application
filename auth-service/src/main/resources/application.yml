@@ -13,3 +13,6 @@ spring:
 
 security:
   jwtSecret: your-secret-key
+
+server:
+  port: 8081

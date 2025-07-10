@@ -21,8 +21,6 @@ public class PostsController {
 
     private final PostsService postsService;
 
-// Создать пост - требует авторизации (JWT), пропустим тут для простоты
-
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody Map<String, Object> body,
                                     HttpServletRequest request) {
@@ -40,6 +38,7 @@ public class PostsController {
 
     }
 
+    // Создать пост - требует авторизации (JWT)
     private Long extractUserIdFromToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
@@ -56,5 +55,3 @@ public class PostsController {
         return Long.parseLong(claims.getSubject());
     }
 }
-
-// Получить все посты пользователя
