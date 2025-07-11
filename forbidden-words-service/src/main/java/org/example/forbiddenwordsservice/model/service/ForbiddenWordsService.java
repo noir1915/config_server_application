@@ -19,12 +19,13 @@ public class ForbiddenWordsService {
         return repository.findAll().stream().map(ForbiddenWord::getWord).collect(Collectors.toList());
     }
 
-    public void addWord(String words) {
-        if (repository.findByWord(words).isEmpty()) {
-            ForbiddenWord fw = new ForbiddenWord();
-            fw.setWord(words);
-            repository.save(fw);
+    public void addWord(String word) {
+        if (repository.findByWord(word).isPresent()) {
+            throw new IllegalArgumentException("Word already exists");
         }
+        ForbiddenWord fw = new ForbiddenWord();
+        fw.setWord(word);
+        repository.save(fw);
     }
 
     public void removeWord(String word) {

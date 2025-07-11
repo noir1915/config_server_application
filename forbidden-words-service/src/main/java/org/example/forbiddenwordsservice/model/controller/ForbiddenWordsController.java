@@ -20,13 +20,17 @@ public class ForbiddenWordsController {
         return service.getAllWords();
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody Map<String, String> body) {
-        service.addWord(body.get("word"));
-        return ResponseEntity.ok().build();
+        try {
+            service.addWord(body.get("word"));
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
-    @PostMapping("/remove")
+    @DeleteMapping("/remove")
     public ResponseEntity<?> remove(@RequestBody Map<String, String> body) {
         service.removeWord(body.get("word"));
         return ResponseEntity.ok().build();

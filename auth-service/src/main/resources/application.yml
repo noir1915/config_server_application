@@ -7,9 +7,12 @@ spring:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
   cloud:
     config:
-      uri: http://localhost:8082
+      uri: http://localhost:8888
 
 server:
   port: 8081
